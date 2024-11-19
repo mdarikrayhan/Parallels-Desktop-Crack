@@ -152,7 +152,3 @@ It's opensource, you can use any hex file comparison tool you like open `prl_dis
 ## I want to crack it myself.
 
 Check the `prl_disp_service.md` to see how I cracked it.
-
-## Where to get update?
-
-[https://icrack.day/pdfm](https://icrack.day/pdfm)
