@@ -27,27 +27,6 @@
 Done! Enjoy using it!
 ```
 
-## Troubleshooting
-- **Parallels Desktop application crashes unexpectedly?**
-  - Add a digital signature. See the guide: *Adding a Digital Signature*.
-- **pr|_client_app application crashes?**
-  - Go to the Patch folder and run `DisableLibraryValidation`.
-  - Follow the instructions in the terminal.
-- **Patch shows "Operation not permitted"?**
-  - Terminal lacks permissions. Go to **System Settings → Privacy & Security** and add Terminal to:
-    - Full Disk Access
-    - App Management
-  - Terminal is located in: `Applications → Utilities → Terminal`.
-- **Patch shows "Read-only"?**
-  - The script can’t access files in the DMG. Make sure you copied the Patch folder to the desktop and try again.
-- **Parallels Desktop freezes on launch?**
-  - Enable a VPN. Create a VM — Parallels will then work without VPN.
-- **Black screen when starting a VM?**
-  - In the running VM, go to the menu: **Actions → Reset** (equivalent to a PC reboot).
-- **Other issues?**
-  - See the guide: *Common Mac app installation errors*.
-  - For fixes for launching files, applications, and games: Download *Auto Fix*.
-
 ## Disabling Gatekeeper (macOS)
 
 Gatekeeper is a macOS security feature that may prevent the patch from running. To disable Gatekeeper:
@@ -68,6 +47,27 @@ sudo spctl --master-enable
 ```
 
 > **Note:** Disabling Gatekeeper reduces your Mac's security. Only disable it temporarily and re-enable it after completing the patch process.
+
+## Troubleshooting
+- **Parallels Desktop application crashes unexpectedly?**
+  - Add a digital signature. See the guide: *Adding a Digital Signature*.
+- **pr|_client_app application crashes?**
+  - Go to the Patch folder and run `DisableLibraryValidation`.
+  - Follow the instructions in the terminal.
+- **Patch shows "Operation not permitted"?**
+  - Terminal lacks permissions. Go to **System Settings → Privacy & Security** and add Terminal to:
+    - Full Disk Access
+    - App Management
+  - Terminal is located in: `Applications → Utilities → Terminal`.
+- **Patch shows "Read-only"?**
+  - The script can’t access files in the DMG. Make sure you copied the Patch folder to the desktop and try again.
+- **Parallels Desktop freezes on launch?**
+  - Enable a VPN. Create a VM — Parallels will then work without VPN.
+- **Black screen when starting a VM?**
+  - In the running VM, go to the menu: **Actions → Reset** (equivalent to a PC reboot).
+- **Other issues?**
+  - See the guide: *Common Mac app installation errors*.
+  - For fixes for launching files, applications, and games: Download *Auto Fix*.
 
 ## Support
 - If you found this guide helpful, consider supporting the project!
