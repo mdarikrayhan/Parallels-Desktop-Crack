@@ -1,25 +1,26 @@
 # Parallels Desktop Crack Installation Guide
 
 ## Installing Parallels Desktop
-1. Open the image `ParallelsDesktop-20.4.1-55996.dmg`.
-2. Run the Install installer.
-3. When prompted for an update, **decline** by closing the update window, then select **No, install the current version**.
-4. Enter your Mac password (the one you use to log in).
-5. Accept the license agreement.
-6. **Uncheck**: *Help us make Parallels Desktop for Mac better by automatically sending usage statistics to Parallels* (optional, does not affect activation).
-7. Click **Accept**.
-8. Wait for the installation to complete.
-9. Close Parallels Desktop.
+1. Download the image [`ParallelsDesktop-20.4.1-55996.dmg`](https://download.parallels.com/desktop/v20/20.4.1-55996/ParallelsDesktop-20.4.1-55996.dmg).
+2. Double-click the downloaded file `ParallelsDesktop-20.4.1-55996.dmg` to mount it.
+3. In the mounted window, double-click `Install` to start the installation.
+4. If prompted for an update, **decline** by closing the update window, then select **No, install the current version**.
+5. Enter your Mac login password when requested.
+6. Review and accept the license agreement.
+7. **Uncheck**: *Help us make Parallels Desktop for Mac better by automatically sending usage statistics to Parallels* (this is optional and does not affect activation).
+8. Click **Accept** to continue.
+9. Wait for the installation to complete.
+10. When finished, close Parallels Desktop.
 
 ## Installing the Patch
-1. Copy the `Patch` folder to your desktop.
-2. Open the `Patch` folder.
-3. Run the `Launch Patch` file.
-   - If the file won’t open, confirm the launch in **System Settings → Privacy & Security → Security**.
+1. Copy the `Patch` folder from the repository to your Desktop.
+2. Open the `Patch` folder on your Desktop.
+3. Double-click `Launch Patch.command` to run the patch script.
+  - If the file won’t open, confirm the launch in **System Settings → Privacy & Security → Security**.
   - Disabling Gatekeeper may also help (see: [Disabling Gatekeeper (macOS)](#disabling-gatekeeper-macos)).
-4. Terminal will open. Follow the instructions and enter your Mac password.
+4. Terminal will open. Follow the instructions and enter your Mac password when prompted.
 5. After entering the password, a list of applications will appear. Find **Parallels Desktop** in the list, note the number on the left, and enter it.
-6. Wait for the patch to complete, then close the terminal.
+6. Wait for the patch to complete, then close the Terminal window.
 
 **Example of successful patch execution:**
 ```
