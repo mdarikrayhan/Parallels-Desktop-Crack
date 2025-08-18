@@ -1,154 +1,76 @@
-# Parallels Desktop Crack
+# Parallels Desktop Crack Installation Guide
 
-Crack for Parallels Desktop 18.1.1 53328
+## Installing Parallels Desktop
+1. Open the image `ParallelsDesktop-20.4.1-55996.dmg`.
+2. Run the Install installer.
+3. When prompted for an update, **decline** by closing the update window, then select **No, install the current version**.
+4. Enter your Mac password (the one you use to log in).
+5. Accept the license agreement.
+6. **Uncheck**: *Help us make Parallels Desktop for Mac better by automatically sending usage statistics to Parallels* (optional, does not affect activation).
+7. Click **Accept**.
+8. Wait for the installation to complete.
+9. Close Parallels Desktop.
 
-- [x] Support Intel
-- [x] Support Apple Silicon (M1 & M2)
-- [x] Network
-- [x] USB
+## Installing the Patch
+1. Copy the `Patch` folder to your desktop.
+2. Open the `Patch` folder.
+3. Run the `Launch Patch` file.
+   - If the file won’t open, confirm the launch in **System Settings → Privacy & Security → Security**.
+  - Disabling Gatekeeper may also help (see: [Disabling Gatekeeper (macOS)](#disabling-gatekeeper-macos)).
+4. Terminal will open. Follow the instructions and enter your Mac password.
+5. After entering the password, a list of applications will appear. Find **Parallels Desktop** in the list, note the number on the left, and enter it.
+6. Wait for the patch to complete, then close the terminal.
 
-# Usage
-
-1. Install Parallels Desktop.
-
-    https://download.parallels.com/desktop/v18/18.1.1-53328/ParallelsDesktop-18.1.1-53328.dmg
-
-2. Exit parallels account.
-
-3. Download this repo files.
-
-4. Extract and run Terminal in this directory.
-
-5. `chmod +x ./install.sh && sudo ./install.sh`
-
-If you got "Operation not permitted" error, enable "Full Disk Access" permission for your Terminal app.
-
-`System Preferences ▸ Security & Privacy ▸ Privacy ▸ Full Disk Access`
-
-If you got `codesign` error, ensure xcode command line tools installed. Install with command `xcode-select --install`.
-
-Check installed with `xcode-select -p` will output `/Library/Developer/CommandLineTools` or `/Applications/Xcode.app/Contents/Developer`.
-
-
-# Manual
-
-1. Open `Parallels Desktop` and exit your account.
-
-2. Exit `Parallels Desktop`.
-
-3. Ensure prl_disp_service not running.
-
+**Example of successful patch execution:**
 ```
-pkill -9 prl_disp_service
+Done! Enjoy using it!
 ```
 
-4. Copy cracked `prl_disp_service` file.
+## Troubleshooting
+- **Parallels Desktop application crashes unexpectedly?**
+  - Add a digital signature. See the guide: *Adding a Digital Signature*.
+- **pr|_client_app application crashes?**
+  - Go to the Patch folder and run `DisableLibraryValidation`.
+  - Follow the instructions in the terminal.
+- **Patch shows "Operation not permitted"?**
+  - Terminal lacks permissions. Go to **System Settings → Privacy & Security** and add Terminal to:
+    - Full Disk Access
+    - App Management
+  - Terminal is located in: `Applications → Utilities → Terminal`.
+- **Patch shows "Read-only"?**
+  - The script can’t access files in the DMG. Make sure you copied the Patch folder to the desktop and try again.
+- **Parallels Desktop freezes on launch?**
+  - Enable a VPN. Create a VM — Parallels will then work without VPN.
+- **Black screen when starting a VM?**
+  - In the running VM, go to the menu: **Actions → Reset** (equivalent to a PC reboot).
+- **Other issues?**
+  - See the guide: *Common Mac app installation errors*.
+  - For fixes for launching files, applications, and games: Download *Auto Fix*.
 
-```
-sudo cp -f prl_disp_service "/Applications/Parallels Desktop.app/Contents/MacOS/Parallels Service.app/Contents/MacOS/prl_disp_service"
-sudo chown root:wheel "/Applications/Parallels Desktop.app/Contents/MacOS/Parallels Service.app/Contents/MacOS/prl_disp_service"
-sudo chmod 755 "/Applications/Parallels Desktop.app/Contents/MacOS/Parallels Service.app/Contents/MacOS/prl_disp_service"
-```
+## Disabling Gatekeeper (macOS)
 
-5. Copy fake licenses.json.
+Gatekeeper is a macOS security feature that may prevent the patch from running. To disable Gatekeeper:
 
-```
-sudo cp -f licenses.json "/Library/Preferences/Parallels/licenses.json"
-sudo chown root:wheel "/Library/Preferences/Parallels/licenses.json"
-sudo chmod 444 "/Library/Preferences/Parallels/licenses.json"
-sudo chflags uchg "/Library/Preferences/Parallels/licenses.json"
-sudo chflags schg "/Library/Preferences/Parallels/licenses.json"
-```
+1. Open the Terminal app (`Applications → Utilities → Terminal`).
+2. Enter the following command and press Enter:
+  ```sh
+  sudo spctl --master-disable
+  ```
+3. Enter your Mac password if prompted.
+4. Gatekeeper will now be disabled, allowing you to run apps from any source.
+5. Go to settings app (`Applications → System Preferences → Security & Privacy`).
+6. In the "Privacy & Security" tab, select "Allow apps downloaded from: Anywhere".
 
-6. Sign `prl_disp_service` file.
-
-```
-sudo codesign -f -s - --timestamp=none --all-architectures --entitlements ParallelsService.entitlements "/Applications/Parallels Desktop.app/Contents/MacOS/Parallels Service.app/Contents/MacOS/prl_disp_service"
-```
-
-
-# Notice
-
-Parallels Desktop may upload client info or logs to server.
-
-You can use a firewall, hosts or custom DNS block there domains.
-
-This prevents the built-in downloader from working, but you can download prebuilt Virtual Machines via
-* Apple Silicon
-    * https://update.parallels.com/desktop/v18/appliances_arm.xml
-    * https://update.parallels.com/desktop/v18/appliances_arm_Monterey.xml
-* Intel
-    * https://update.parallels.com/desktop/v18/appliances.xml
-
-## Hosts
-
-```
-127.0.0.1 download.parallels.com
-127.0.0.1 update.parallels.com
-127.0.0.1 desktop.parallels.com
-127.0.0.1 download.parallels.com.cdn.cloudflare.net
-127.0.0.1 update.parallels.com.cdn.cloudflare.net
-127.0.0.1 desktop.parallels.com.cdn.cloudflare.net
-127.0.0.1 www.parallels.cn
-127.0.0.1 www.parallels.com
-127.0.0.1 www.parallels.de
-127.0.0.1 www.parallels.es
-127.0.0.1 www.parallels.fr
-127.0.0.1 www.parallels.nl
-127.0.0.1 www.parallels.pt
-127.0.0.1 www.parallels.ru
-127.0.0.1 www.parallelskorea.com
-127.0.0.1 reportus.parallels.com
-127.0.0.1 parallels.cn
-127.0.0.1 parallels.com
-127.0.0.1 parallels.de
-127.0.0.1 parallels.es
-127.0.0.1 parallels.fr
-127.0.0.1 parallels.nl
-127.0.0.1 parallels.pt
-127.0.0.1 parallels.ru
-127.0.0.1 parallelskorea.com
-127.0.0.1 pax-manager.myparallels.com
-127.0.0.1 myparallels.com
-127.0.0.1 my.parallels.com
+**To re-enable Gatekeeper after patching:**
+```sh
+sudo spctl --master-enable
 ```
 
-Parallels Desktop will uncomment hosts file, can use this command lock your hosts file:
+> **Note:** Disabling Gatekeeper reduces your Mac's security. Only disable it temporarily and re-enable it after completing the patch process.
 
-```
-sudo chflags uchg /etc/hosts
-sudo chflags schg /etc/hosts
-```
+## Support
+- If you found this guide helpful, consider supporting the project!
+- Need installation help (paid service)?
+- Need assistance? Contact: **SamFisherSpCell2005**
 
-## AdGuardHome
-
-Add the following rules to your `Custom filtering rules`:
-
-```
-||myparallels.com^$important
-||parallels.cn^$important
-||parallels.com^$important
-||parallels.de^$important
-||parallels.es^$important
-||parallels.fr^$important
-||parallels.nl^$important
-||parallels.pt^$important
-||parallels.ru^$important
-||parallelskorea.com^$important
-||parallels.com.cdn.cloudflare.net^$important
-```
-
-
-# FAQ
-
-## Why `prl_disp_service` file so big?
-
-It's direct patch'd file for original `prl_disp_service` file.
-
-## Is this crack safe?
-
-It's opensource, you can use any hex file comparison tool you like open `prl_disp_service` to see what has been modified.
-
-## I want to crack it myself.
-
-Check the `prl_disp_service.md` to see how I cracked it.
+> **Note:** To open a link, open the document in full—do not use the preview.
