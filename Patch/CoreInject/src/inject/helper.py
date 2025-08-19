@@ -4,20 +4,20 @@ from pathlib import Path
 from src.utils.color import Color
 from src.utils.i18n import _, I18n
 
-# 初始化国际化支持
+ # Initialize internationalization support
 I18n.init()
 
-# 执行命令并检查结果的辅助函数
+# Helper function to execute commands and check results
 def run_command(command, shell=True, check_error=True):
-    """运行命令并检查结果，如果出错则显示红色警告
+    """Run a command and check the result, display red warning if error occurs
     
     Args:
-        command: 要执行的命令
-        shell: 是否使用shell执行
-        check_error: 是否检查错误
-        
+        command: Command to execute
+        shell: Whether to use shell to execute
+        check_error: Whether to check for errors
+    
     Returns:
-        bool: 命令执行成功返回True，否则返回False
+        bool: Returns True if command succeeds, otherwise False
     """
     try:
         result = subprocess.run(command, shell=shell, capture_output=True, text=True)
@@ -38,25 +38,25 @@ def run_command(command, shell=True, check_error=True):
 
 
 def handle_helper(app_base, target_helper, component_apps, SMExtra, bridge_path, useOptool, helperNoInject, dylibSelect):
-    """增强Helper
+    """Enhance Helper
 
     Args:
-        app_base (dict): app信息
-        target_helper (string): helper文件路径
+        app_base (dict): app info
+        target_helper (string): helper file path
     """
-    # 获取项目根目录
+    # Get project root directory
     root_dir = Path(__file__).resolve().parent.parent.parent
     
-    # 构建工具路径
+    # Build tool paths
     starter_path = os.path.join(root_dir, "tool", "GenShineImpactStarter")
     optool_path = os.path.join(root_dir, "tool", "optool")
     insert_dylib_path = os.path.join(root_dir, "tool", "insert_dylib")
     
-    # 设置权限
+    # Set permissions
     if not run_command(f"chmod +x '{starter_path}'"):
         print(Color.red(f"[{_('error')}] {_('cannot_set_executable').format(starter_path)}"))
     
-    # 运行工具
+    # Run tool
     if not run_command(f"'{starter_path}' '{target_helper}' {'' if SMExtra is None else SMExtra}"):
         print(Color.red(f"[{_('error')}] {_('tool_failed')}"))
     

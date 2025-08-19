@@ -184,15 +184,23 @@ class I18n:
             
         return cls._translations.get(cls._current_language, {}).get(key, default)
 
-# 创建一个简化的调用函数
+
+# Create a simplified translation function
 def _(key, default=None):
-    """获取翻译的简化函数
+    """Simplified translation function
     
     Args:
-        key: 翻译键
-        default: 默认值
-        
+        key: Translation key
+        default: Default value (defaults to English translation)
+    
     Returns:
-        str: 翻译后的文本
+        str: Translated text
     """
-    return I18n.get_text(key, default) 
+    if default is None:
+        # Try to get English translation if available
+        english = I18n._translations.get(I18n.ENGLISH, {}).get(key)
+        if english:
+            default = english
+        else:
+            default = key
+    return I18n.get_text(key, default)
