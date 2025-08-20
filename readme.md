@@ -6,23 +6,21 @@ A simple, one-click solution to crack Parallels Desktop on macOS.
 
 1. **Download Parallels Desktop** from the [official link](https://download.parallels.com/desktop/v20/20.4.1-55996/ParallelsDesktop-20.4.1-55996.dmg)
 2. **Install** it (but don't run it yet)
-3. **Double-click** `run-crack.command`
+3. **Double-click** `crack.command`
 4. **Enter your password** when prompted
 5. **Enjoy** unlimited Parallels Desktop!
 
 ## What's Included
 
-- `run-crack.command` - Main crack script (double-click to run)
-- `crack.sh` - Core crack logic
-- `CoreInject.dylib` - Injection library
-- `GenShineImpactStarter` - Injection tool
-- `VM.entitlements` - Virtual machine entitlements
-- `disable-validation.command` - Disables macOS library validation if needed
+- `crack.command` - One-click crack script (everything included!)
+- `inject.dylib` - Injection library
+- `patcher` - Injection tool
+- `entitlements.plist` - Virtual machine entitlements
 
 ## Troubleshooting
 
 **Permission Issues?**
-- Run `disable-validation.command` first
+- When prompted, choose "y" to disable macOS validation
 - Grant Terminal "Full Disk Access" in System Preferences
 
 ## Requirements
